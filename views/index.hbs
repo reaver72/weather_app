@@ -1,0 +1,599 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.bundle.js" defer></script>
+    <title>Weather App</title>
+</head>
+
+<body class="bg-gray-500">
+
+    <div class="overflow-y-auto">
+        <div class="xl:mx-40 md:mx-20 sm:mx-10 bg-gray-700 p-4">
+            <div class="flex items-center justify-center">
+
+                <img class="mr-4 md:w-1/12 w-2/12" src="https://img.icons8.com/color/48/000000/partly-cloudy-rain--v2.png" />
+                <h1 class="text-center text-2xl">
+                    <span class="text-white font-sans text-3xl">Minute</span>
+                    <span class="md:text-5xl font-serif text-yellow-400 text-4xl">Weather</span>
+                </h1>
+            </div>
+
+        </div>
+        <section class="xl:mx-40 md:mx-20 sm:mx-10 bg-gray-800 mt-6 rounded p-6">
+            <div class="grid sm:grid-cols-2 grid-cols-1">
+                <div>
+                    <form action="" class="m-4">
+                        <input class="rounded-md px-2 py-1 focus:outline-none" type="text" name="" id="input"
+                            placeholder="Location/City" />
+                        <button type="button"
+                            class="my-4 sm:my-4 text-black bg-yellow-400 hover:bg-yellow-300 border-2 border-yellow-500 font-medium rounded-lg text-sm px-5 py-2 text-center mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-800 dark:border-gray-700 ml-2"
+                            id="button">Get Weather</button>
+                    </form>
+
+
+                    <h2 class="m-4 text-md text-white" id="time">9:24 am</h2>
+                    <h2 class="m-4 text-3xl text-white" id="city">Kathmandu</h2>
+                    <h2 class="m-4 text-2xl text-white" id="country">Nepal</h2>
+
+                    <div class="flex items-center justify-start">
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl m-4 text-white"> <span id="temp_c">16</span> °C</h1>
+                        <img id="icon_img" class="w-2/12" src="http://cdn.weatherapi.com/weather/64x64/day/296.png" />
+                    </div>
+
+                    <h2 class="text-xl text-white">Feels Like <span class="text-2xl"><span id="feels_like">16.2</span>
+                            °C</span>
+                        <span class="sm:ml-10 text-white sm:text-2xl sm:inline block ml-0 sm:mt-0 mt-2 md:mb-0 mb-2 text-xl" id="condition">Cloudy</span>
+                    </h2>
+
+                </div>
+                <div>
+
+                    <table id="table" class="w-full">
+
+
+                        <table class="min-w-full">
+
+                            </thead>
+                            <tbody>
+
+
+
+                            </tbody>
+                        </table>
+
+
+                        <div class="flex justify-end">
+                            <h2 id="last_updated" class="text-white mt-4"></h2>
+                        </div>
+
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="xl:mx-40 md:mx-20 sm:mx-10">
+
+            </h1>
+            <div class="flex justify-center bg-gray-900">
+                <button id="show_more_today" type="button"
+                    class="text-white mt-6 bg-gray-800 hover:bg-gray-600  font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-800 dark:border-gray-700">Show
+                    more weather details for today</button>
+
+            </div>
+            <div>
+                <h2 id="todays_weather" class=" text-2xl text-white mt-6 py-2 text-center"></h2>
+            </div>
+<div class="overflow-x-scroll lg:overflow-hidden">
+
+            <table id="tableToday" class="w-full table-auto">
+
+                <table class="min-w-full">
+
+                    
+                </table>
+            
+        </div>
+    </div>
+
+    </table>
+
+
+    <div class="xl:mx-40 md:mx-20 sm:mx-10 bg-gray-500 mt-2">
+                <h2 id="tomorrow_weather" class="bg-gray-600 text-2xl text-white mt-6 py-2 text-center"></h2>
+
+<div class="overflow-x-scroll lg:overflow-hidden">
+
+        <table id="next_day_forecast" class="w-full table-auto">
+        
+        </table>
+
+    </div>
+</div>
+    <div class="xl:mx-40 md:mx-20 sm:mx-10 bg-gray-500 mt-2">
+
+
+
+        <div id="next_weather_div"  class="bg-gray-800 flex items-center justify-center mt-6">
+        <button id="next_forecast_btn" type="button"
+            class="text-white bg-gray-800 hover:bg-gray-700  font-medium text-md px-5 py-2.5 text-center dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-800 dark:border-gray-700">Show
+            next day weather forecast</button></div>
+
+    </div>
+
+
+
+    <div  class="xl:mx-40 md:mx-20 sm:mx-10 bg-gray-500 mt-2">
+                <h2 id="next_weather" class="bg-gray-600 text-2xl text-white mt-6 py-2 text-center"></h2>
+<div class="overflow-x-scroll lg:overflow-hidden">
+
+        <table id="next_forecast2" class="w-full table-auto">
+
+
+        </table>
+
+    </div>
+</div>
+
+    </div>
+    
+    
+    <script>
+
+            const forecastModel = (data, day, table) => {
+            table.innerHTML = ""
+            const forecastDay = data.body.forecast.forecastday
+            const time_0 = forecastDay[day].hour[0].time.slice(11)
+            const time_3 = forecastDay[day].hour[3].time.slice(11)
+            const time_6 = forecastDay[day].hour[6].time.slice(11)
+            const time_9 = forecastDay[day].hour[9].time.slice(11)
+            const time_12 = forecastDay[day].hour[12].time.slice(11)
+            const time_15 = forecastDay[day].hour[15].time.slice(11)
+            const time_18 = forecastDay[day].hour[18].time.slice(11)
+            const time_21 = forecastDay[day].hour[21].time.slice(11)
+            const time_23 = forecastDay[day].hour[23].time.slice(11)
+
+            row = `
+            <tbody>
+                                            <th>Time</th>
+                                            <th>${time_0} am</th>
+                                            <th>${time_3} am</th>
+                                            <th>${time_6} am</th>
+                                            <th>${time_9} am</th>
+                                            <th>${time_12} pm</th>
+                                            <th>${time_15} pm</th>
+                                            <th>${time_18} pm</th>
+                                            <th>${time_21} pm</th>
+                                            <th>${time_23} pm</th>
+                                         
+                                            <tr>
+                                                 <td class="font-bold">
+                                                    Image
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[0].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[3].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[6].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[9].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[12].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[15].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[18].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[21].condition.icon}>
+                                                </td>
+                                                <td>
+                                                    <img src=${forecastDay[day].hour[23].condition.icon}>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                 <td class="font-bold">
+                                                    Condition
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[0].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[3].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[6].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[9].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[12].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[15].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[18].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[21].condition.text}
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[23].condition.text}
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                 <td class="font-bold">
+                                                    Temp
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[0].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[3].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[6].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[9].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[12].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[15].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[18].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[21].temp_c}
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[23].temp_c}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                 <td class="font-bold">
+                                                    Cloud
+                                                </td>
+                                                 <td>
+                                                                                                        ${forecastDay[day].hour[0].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[3].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[6].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[9].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[12].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[15].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[18].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[21].cloud} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[23].cloud} %
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                 <td class="font-bold">
+                                                    Chance Of Rain
+                                                </td>
+                                                 <td>
+                                                    ${forecastDay[day].hour[0].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                                                                        ${forecastDay[day].hour[3].chance_of_rain} %
+
+                                                </td>
+                                                <td>
+                                                   ${forecastDay[day].hour[6].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[9].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                   ${forecastDay[day].hour[12].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[15].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[18].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[21].chance_of_rain} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[23].chance_of_rain} %
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-bold">
+                                                    Humidity
+                                                <td>
+                                                    ${forecastDay[day].hour[0].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[3].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[6].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[9].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[12].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[15].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[18].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[21].humidity} %
+                                                </td>
+                                                <td>
+                                                    ${forecastDay[day].hour[23].humidity} %
+                                                </td>
+                                            </tr></tbody>
+                        `
+            table.innerHTML += row;
+        }
+
+        const input = document.querySelector("#input");
+        const button = document.querySelector("#button");
+        const time = document.getElementById("time")
+        const city = document.getElementById("city");
+        const country = document.getElementById("country");
+        const current_temp = document.getElementById("temp_c");
+        const image = document.getElementById("icon_img");
+        const feelsLike = document.getElementById("feels_like");
+        const condition = document.getElementById("condition");
+        const last_updated = document.getElementById("last_updated");
+        const table = document.getElementById("table")
+        const show_more_btn = document.getElementById("show_more_today")
+        const todays_weather = document.getElementById("todays_weather")
+        const tableToday = document.getElementById("tableToday")
+        const next_forecast_btn = document.getElementById("next_forecast_btn");
+        const next_forecast = document.getElementById("next_forecast");
+        const next_forecast2 = document.getElementById("next_forecast2");
+        const tomorrow_weather = document.getElementById("tomorrow_weather")
+        const next_weather = document.getElementById("next_weather")
+        const next_weather_div = document.getElementById("next_weather_div")
+        
+        const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+            function success(pos) {
+  const crd = pos.coords;
+  const lat = crd.latitude
+  const lon = crd.longitude
+
+ 
+fetch(`https://minute-weather.herokuapp.com/weather/api/current.json?&address=${lat},${lon}`).then(response => response.json()).then(data => {
+            city.textContent = data.body.location.name
+            time.textContent = data.body.location.localtime
+            country.textContent = data.body.location.country
+            current_temp.textContent = data.body.current.temp_c
+            image.src = data.body.current.condition.icon
+            feelsLike.textContent = data.body.current.feelslike_c
+            condition.textContent = data.body.current.condition.text
+            last_updated.textContent = `Last Updated: ${data.body.current.last_updated}`
+            show_more_btn.textContent = `Show Today's weather in ${city.textContent}`
+            tomorrow_weather.textContent = `Tomorrow weather forecast for ${city.textContent}`
+
+            function build(data) {
+                table.innerHTML = "";
+                let pressure_value = data.body.current.pressure_in*25.4;
+                pressure_value = pressure_value.toFixed(3);
+                let row = `<tr id="tr1">
+                                                    <td
+                                                      >
+                                                        Wind Speed
+                                                    </td>
+                                                    <td
+                                                      >
+                                                        ${data.body.current.wind_kph} Kph
+                                                    </td>
+                                                </tr>
+                                <tr>
+                                <td>Wind Direction</td>
+                                <td>${data.body.current.wind_dir}</td>
+                                </tr>
+                                <tr>
+                                <td>Pressure</td>
+                               
+                                <td>${pressure_value} mm of Hg</td>
+                            </tr>
+                                </tr>
+                                <tr>
+                                <td>Humidity</td>
+                                <td>${data.body.current.humidity}</td>
+                            </tr>
+                                </tr>
+                                <tr>
+                                <td>Uv Index</td>
+                                <td>${data.body.current.uv}</td>
+                            </tr>`
+                table.innerHTML += row
+
+
+            }
+
+            build(data);
+            const next_day_forecast = document.getElementById("next_day_forecast")
+ 
+
+        fetch(`https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`).then(response => response.json()).then(data => {
+
+            forecastModel(data, 1, next_day_forecast)
+
+
+        });
+
+
+                next_forecast_btn.addEventListener("click", () => {
+            
+            fetch(`https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`).then(response => response.json()).then(data => {
+            next_weather.textContent = `Weather Forecast for day ${data.body.forecast.forecastday[2].hour[0].time.slice(0,10)} (${city.textContent})`
+
+                forecastModel(data, 2, next_forecast2)
+
+
+
+            });
+        })
+
+
+       show_more_btn.addEventListener("click", () => {
+            
+            todays_weather.classList.add("bg-gray-600")
+            todays_weather.textContent = `Today's Weather in ${city.textContent}`
+            fetch(`https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`).then(response => response.json()).then(data => {
+
+                forecastModel(data, 0, tableToday)
+
+
+            });
+        })
+
+
+
+        })
+            }
+
+ 
+
+navigator.geolocation.getCurrentPosition(success,null, options);
+
+       
+
+
+
+        button.addEventListener("click", () => {
+            let address = input.value;
+            if (address.length === 0) {
+                address = "auto:ip"
+            }
+
+            
+            city.textContent = ""
+            country.textContent = ""
+            current_temp.textContent = "Loading"
+            feelsLike.textContent = ""
+            condition.textContent = ""
+            last_updated.textContent = ""
+            tableToday.innerHTML = ""
+            next_forecast2.innerHTML = ""
+            todays_weather.classList.remove("bg-gray-600")
+
+            todays_weather.innerHTML = ""
+            next_weather.innerHTML = "";
+            
+
+
+            fetch(`https://minute-weather.herokuapp.com/weather/api/current.json?&address=${address}`).then(response => response.json()).then(data => {
+                city.textContent = data.body.location.name
+                time.textContent = data.body.location.localtime
+                country.textContent = data.body.location.country
+                current_temp.textContent = data.body.current.temp_c
+                image.src = data.body.current.condition.icon
+                feelsLike.textContent = data.body.current.feelslike_c
+                condition.textContent = data.body.current.condition.text
+                last_updated.textContent = `Last Updated: ${data.body.current.last_updated}`
+                show_more_btn.textContent = `Show Today's weather in ${city.textContent}`
+            tomorrow_weather.textContent = `Tomorrow weather forecast for ${city.textContent}`
+ 
+
+
+                fetch(`https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${address}`).then(response => response.json()).then(data => {
+
+                    forecastModel(data, 1, next_day_forecast)
+
+
+                });
+                function build(data) {
+                    table.innerHTML = "";
+                    let pressure_value = data.body.current.pressure_in*25.4;
+                pressure_value = pressure_value.toFixed(3);
+                    let row = `<tr id="tr1">
+                                                    <td
+                                                       >
+                                                        Wind Speed
+                                                    </td>
+                                                    <td
+                                                       >
+                                                        ${data.body.current.wind_kph} Kph
+                                                    </td>
+                                                </tr>
+                                <tr>
+                                <td>Wind Direction</td>
+                                <td>${data.body.current.wind_dir}</td>
+                                </tr>
+                                <tr>
+                                <td>Pressure</td>
+                                <td>${pressure_value} mm of Hg</td>
+                            </tr>
+                                </tr>
+                                <tr>
+                                <td>Humidity</td>
+                                <td>${data.body.current.humidity}</td>
+                            </tr>
+                                </tr>
+                                <tr>
+                                <td>Uv Index</td>
+                                <td>${data.body.current.uv}</td>
+                            </tr>`
+                    table.innerHTML += row
+
+                }
+                build(data)
+
+
+            });
+        })
+
+
+
+ 
+
+    </script>
+</body>
+
+</html>
