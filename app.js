@@ -19,7 +19,7 @@ app.get("/weather/api/current.json", (req, res) => {
 	var request = require("postman-request");
 	request(
 		{
-			url: `https://api.weatherapi.com/v1/current.json?key=2645755d47e549fea0151213220101&q=${address}`,
+			url: `https://api.weatherapi.com/v1/current.json?key={Your API Key}&q=${address}`,
 			json: true,
 		},
 		(err, response, body) => {
@@ -44,7 +44,7 @@ app.get("/weather/api/ip.json", (req, res) => {
 	var request = require("postman-request");
 	request(
 		{
-			url: `https://api.weatherapi.com/v1/ip.json?key=2645755d47e549fea0151213220101&q=auto:ip`,
+			url: `https://api.weatherapi.com/v1/ip.json?key={Your API Key}&q=auto:ip`,
 			json: true,
 		},
 		(err, response, body) => {
@@ -73,7 +73,7 @@ app.get("/weather/api/forecast.json", (req, res) => {
 	var request = require("postman-request");
 	request(
 		{
-			url: `https://api.weatherapi.com/v1/forecast.json?key=2645755d47e549fea0151213220101&q=${address}&days=3`,
+			url: `https://api.weatherapi.com/v1/forecast.json?key={Your API Key}&q=${address}&days=3`,
 			json: true,
 		},
 		(err, response, body) => {
