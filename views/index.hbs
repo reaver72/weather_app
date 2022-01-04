@@ -27,7 +27,7 @@
         <section class="xl:mx-40 md:mx-20 sm:mx-10 bg-gray-800 mt-6 rounded p-6">
             <div class="grid sm:grid-cols-2 grid-cols-1">
                 <div>
-                    <form action="" class="m-4">
+                    <form onsubmit="return false" class="m-4">
                         <input class="rounded-md px-2 py-1 focus:outline-none" type="text" name="" id="input"
                             placeholder="Location/City" />
                         <button type="button"
@@ -247,31 +247,31 @@
                                                     Temp
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[0].temp_c}
+                                                    ${forecastDay[day].hour[0].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[3].temp_c}
+                                                    ${forecastDay[day].hour[3].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[6].temp_c}
+                                                    ${forecastDay[day].hour[6].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[9].temp_c}
+                                                    ${forecastDay[day].hour[9].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[12].temp_c}
+                                                    ${forecastDay[day].hour[12].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[15].temp_c}
+                                                    ${forecastDay[day].hour[15].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[18].temp_c}
+                                                    ${forecastDay[day].hour[18].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[21].temp_c}
+                                                    ${forecastDay[day].hour[21].temp_c} °C
                                                 </td>
                                                 <td>
-                                                    ${forecastDay[day].hour[23].temp_c}
+                                                    ${forecastDay[day].hour[23].temp_c} °C
                                                 </td>
                                             </tr>
                                             <tr>
@@ -469,8 +469,17 @@ fetch(`https://minute-weather.herokuapp.com/weather/api/current.json?&address=${
 
 
                 next_forecast_btn.addEventListener("click", () => {
+                    let address = input.value
+                    let url = `https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`
+                    if (address.length === 0){
+                        url = `https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`
+                    } else {
+                        url = `https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${address}}`
+
+                    }
+                    
             
-            fetch(`https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`).then(response => response.json()).then(data => {
+            fetch(url).then(response => response.json()).then(data => {
             next_weather.textContent = `Weather Forecast for day ${data.body.forecast.forecastday[2].hour[0].time.slice(0,10)} (${city.textContent})`
 
                 forecastModel(data, 2, next_forecast2)
@@ -482,10 +491,18 @@ fetch(`https://minute-weather.herokuapp.com/weather/api/current.json?&address=${
 
 
        show_more_btn.addEventListener("click", () => {
+           let address = input.value
+                    let url = `https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`
+                    if (address.length === 0){
+                        url = `https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`
+                    } else {
+                        url = `https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${address}}`
+
+                    }
             
             todays_weather.classList.add("bg-gray-600")
             todays_weather.textContent = `Today's Weather in ${city.textContent}`
-            fetch(`https://minute-weather.herokuapp.com/weather/api/forecast.json?&address=${lat},${lon}`).then(response => response.json()).then(data => {
+            fetch(url).then(response => response.json()).then(data => {
 
                 forecastModel(data, 0, tableToday)
 
