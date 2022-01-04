@@ -526,8 +526,9 @@ navigator.geolocation.getCurrentPosition(success,null, options);
         button.addEventListener("click", () => {
             let address = input.value;
             if (address.length === 0) {
-                address = "auto:ip"
+                return
             }
+            
 
             
             city.textContent = ""
